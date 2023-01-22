@@ -1,0 +1,37 @@
+/** Create a Gym Gear Store Database **/
+
+CREATE TABLE Gym_Gear (id INTEGER PRIMARY KEY, item TEXT, size INTEGER, color TEXT, brand TEXT, price INTEGER);
+
+INSERT INTO Gym_Gear VALUES 
+(1, "sports bra","M","pink","nike",25),
+(2, "leggings","L", "red","outdoor voices",38),
+(3,"tank top", "M","purple","outdoor voices", 35),
+(4, "longsleeve", "L","pink","athleta",48),
+(5, "fanny pack","S", "black","lululemon",24),
+(6, "whoop","S", "pink","whoop",50),
+(7, "sneakers","L","pink","brooks",90),
+(8, "lift shoe", "L", "black", "no bull",105),
+(9, "tshirt", "S","blue", "outdoor voices",36),
+(10, "swimsuit","M","blue","speedo",45),
+(11, "sports bag", "L", "lavender","outdoor voices", 95),
+(12, "socks", "S", "black","under armour",10),
+(13, "resistance bands", "S","green","nike",12),
+(14, "water bottle", "M", "blue", "yeti",55),
+(15,"tennis skirt", "S", "white", "outdoor voices",46);
+
+/** Display the database ordered by price **/
+
+SELECT * FROM Gym_Gear ORDER BY price asc;
+
+/** What is the average price from the items from the Outdoor Voices brand **/
+
+SELECT AVG(price) FROM (Gym_Gear)
+where brand= 'outdoor voices';
+
+/** What are the 8 most popular items in the store **/
+
+SELECT item,price,popularity
+FROM Gym_Gear
+ORDER BY popularity desc
+limit 8;
+
